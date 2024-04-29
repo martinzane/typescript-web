@@ -1,0 +1,12 @@
+{
+  "name": "typescript-web",
+  "version": "1.0.0",
+  "description": "One more practice TypeScript project from the \" Typescript: The Complete Developer's Guide\" course",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx parcel index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
