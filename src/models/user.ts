@@ -1,6 +1,6 @@
 interface UserData {
-  name: string;
-  age: number;
+  name?: string;
+  age?: number;
 }
 
 class User {
@@ -8,6 +8,10 @@ class User {
 
   public get(propName: string): string | number {
     return this.data[propName];
+  }
+
+  public set(data: UserData): void {
+    Object.assign(this.data, data);
   }
 }
 
