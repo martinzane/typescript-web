@@ -1,4 +1,5 @@
 import Eventing from "./eventing";
+import Sync from "./sync";
 
 export interface UserData {
   id?: number;
@@ -6,8 +7,11 @@ export interface UserData {
   age?: number;
 }
 
+const ROOT_URL = "http://localhost:3000/users";
+
 class User {
   public events: Eventing = new Eventing();
+  public sync: Sync<UserData> = new Sync(ROOT_URL);
 
   constructor(private data: UserData) {}
 

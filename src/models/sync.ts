@@ -1,14 +1,16 @@
 import axios, { AxiosPromise } from "axios";
-import { UserData } from "./user";
 
-class Sync {
+interface Data {
+  id?: number;
+}
+class Sync<T extends Data> {
   constructor(public rootUrl: string) {}
 
   public fetch(id: number): AxiosPromise {
     return axios.get(`${this.rootUrl}/${id}`);
   }
 
-  public save(data: UserData): AxiosPromise {
+  public save(data: T): AxiosPromise {
     const { id } = data;
 
     if (id) {
