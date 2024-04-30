@@ -1,4 +1,4 @@
-class Attributes<T> {
+class Attributes<T extends object> {
   constructor(private data: T) {}
 
   public get<K extends keyof T>(key: K): T[K] {
