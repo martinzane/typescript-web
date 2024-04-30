@@ -1,3 +1,4 @@
+import Attributes from "./attributes";
 import Eventing from "./eventing";
 import Sync from "./sync";
 
@@ -12,15 +13,10 @@ const ROOT_URL = "http://localhost:3000/users";
 class User {
   public events: Eventing = new Eventing();
   public sync: Sync<UserData> = new Sync(ROOT_URL);
+  public attributes: Attributes<UserData>;
 
-  constructor(private data: UserData) {}
-
-  public get(propName: string): string | number {
-    return this.data[propName];
-  }
-
-  public set(data: UserData): void {
-    Object.assign(this.data, data);
+  constructor(public data: UserData) {
+    this.attributes = new Attributes(data);
   }
 }
 
