@@ -18,6 +18,16 @@ class User {
   constructor(public data: UserData) {
     this.attributes = new Attributes(data);
   }
+
+  get on() {
+    return this.events.on;
+  }
+  get trigger() {
+    return this.events.trigger;
+  }
+  get get() {
+    return this.attributes.get;
+  }
 }
 
 export default User;
