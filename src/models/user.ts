@@ -20,22 +20,22 @@ class User {
     this.attributes = new Attributes(data);
   }
 
-  get on() {
+  public get on() {
     return this.events.on;
   }
-  get trigger() {
+  public get trigger() {
     return this.events.trigger;
   }
-  get get() {
+  public get get() {
     return this.attributes.get;
   }
 
-  set(data: UserData): void {
+  public set(data: UserData): void {
     this.attributes.set(data);
     this.events.trigger("change");
   }
 
-  fetch(): void {
+  public fetch(): void {
     const id = this.get("id");
 
     if (typeof id !== "number") {
@@ -47,7 +47,7 @@ class User {
     });
   }
 
-  save(): void {
+  public save(): void {
     this.sync
       .save(this.attributes.getAll())
       .then((response: AxiosResponse): void => {
