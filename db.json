@@ -1,8 +1,6 @@
 {
   "users": [
     {
-      "name": "Mark",
-      "age": 35,
       "id": 1
     },
     {

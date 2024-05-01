@@ -3,7 +3,7 @@ import axios, { AxiosPromise } from "axios";
 interface Data {
   id?: number;
 }
-class Sync<T extends Data> {
+class ApiSync<T extends Data> {
   constructor(public rootUrl: string) {}
 
   public fetch(id: number): AxiosPromise {
@@ -21,4 +21,4 @@ class Sync<T extends Data> {
   }
 }
 
-export default Sync;
+export default ApiSync;
