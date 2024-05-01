@@ -29,15 +29,9 @@ class Model<T extends Data> {
     private sync: ModelSync<T>
   ) {}
 
-  public get on() {
-    return this.events.on;
-  }
-  public get trigger() {
-    return this.events.trigger;
-  }
-  public get get() {
-    return this.attributes.get;
-  }
+  public on = this.events.on;
+  public trigger = this.events.trigger;
+  public get = this.attributes.get;
 
   public set(data: T): void {
     this.attributes.set(data);
