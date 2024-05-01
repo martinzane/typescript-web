@@ -5,6 +5,10 @@ class Attributes<T extends object> {
     return this.data[key];
   };
 
+  public getAll(): T {
+    return this.data;
+  }
+
   public set(data: T): void {
     Object.assign(this.data, data);
   }
