@@ -1,9 +1,7 @@
-import User from "./models/user";
+import UserForm from "./views/user-form";
 
-const collection = User.createCollection();
+const root = document.getElementById("root")!;
 
-collection.on("change", () => {
-  console.log(collection);
-});
+const userForm = new UserForm(root);
 
-collection.fetch();
+userForm.render();
