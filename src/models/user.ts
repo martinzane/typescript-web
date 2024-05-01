@@ -28,6 +28,11 @@ class User {
   get get() {
     return this.attributes.get;
   }
+
+  set(data: UserData): void {
+    this.attributes.set(data);
+    this.events.trigger("change");
+  }
 }
 
 export default User;
