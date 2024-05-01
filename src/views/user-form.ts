@@ -1,13 +1,20 @@
+import User from "../models/user";
+
 class UserForm {
-  constructor(public parent: Element) {}
+  constructor(public parent: Element, public model: User) {
+    this.bindModel();
+  }
+
+  private bindModel() {
+    this.model.on("change", () => {
+      this.render();
+    });
+  }
 
   mapEvents(): { [key: string]: () => void } {
     return {
-      "click:button": () => {
-        console.log("Hello button!");
-      },
-      "mouseenter:h1": () => {
-        console.log("Hello header!");
+      "click:.set-age": () => {
+        this.model.setRandomAge();
       },
     };
   }
@@ -16,8 +23,12 @@ class UserForm {
     return `
       <div>
         <h1>User form</h1>
+        <div>User name: ${this.model.get("name")}</div>
+        <div>User age: ${this.model.get("age")}</div>
+        <br />
         <input />
         <button>Click me!</button>
+        <button class="set-age">Set random age</button>
       </div>
     `;
   }
@@ -35,6 +46,8 @@ class UserForm {
   }
 
   render(): void {
+    this.parent.innerHTML = "";
+
     const template = document.createElement("template");
     template.innerHTML = this.template();
 

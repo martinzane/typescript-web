@@ -26,6 +26,11 @@ class User extends Model<UserData> {
       User.createUser(json)
     );
   }
+
+  public setRandomAge(): void {
+    const age = Math.round(Math.random() * 100);
+    this.set({ age });
+  }
 }
 
 export default User;
