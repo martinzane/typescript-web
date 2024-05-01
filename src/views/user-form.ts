@@ -18,9 +18,11 @@ class UserForm {
       },
 
       "click:.set-name": () => {
-        const input = this.parent.querySelector("input")!;
-        const name = input.value;
-        this.model.set({ name });
+        const input = this.parent.querySelector("input");
+        if (input) {
+          const name = input.value;
+          this.model.set({ name });
+        }
       },
     };
   }
