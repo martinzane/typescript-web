@@ -2,7 +2,7 @@ import { AxiosPromise, AxiosResponse } from "axios";
 
 type Callback = () => void;
 
-interface Data {
+export interface ModelData {
   id?: number;
 }
 
@@ -22,7 +22,7 @@ interface ModelEvents {
   trigger(event: string): void;
 }
 
-class Model<T extends Data> {
+class Model<T extends ModelData> {
   constructor(
     private attributes: ModelAttributes<T>,
     private events: ModelEvents,
