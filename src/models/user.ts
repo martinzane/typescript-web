@@ -2,6 +2,7 @@ import Model from "./model";
 import Attributes from "./attributes";
 import Eventing from "./eventing";
 import ApiSync from "./api-sync";
+import Collection from "./collection";
 
 export interface UserData {
   id?: number;
@@ -17,6 +18,12 @@ class User extends Model<UserData> {
       new Attributes<UserData>(data),
       new Eventing(),
       new ApiSync<UserData>(ROOT_URL)
+    );
+  }
+
+  static createCollection(): Collection<User, UserData> {
+    return new Collection<User, UserData>(ROOT_URL, (json: UserData) =>
+      User.createUser(json)
     );
   }
 }
