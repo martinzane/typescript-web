@@ -48,6 +48,8 @@ abstract class View<T extends Model<K>, K extends ModelData> {
     });
   }
 
+  onRender(): void {}
+
   render(): void {
     this.parent.innerHTML = "";
 
@@ -58,7 +60,7 @@ abstract class View<T extends Model<K>, K extends ModelData> {
     this.bindEvents(content);
     this.bindRegions(content);
 
-    
+    this.onRender();
 
     this.parent.append(content);
   }

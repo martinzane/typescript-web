@@ -1,4 +1,6 @@
 import User, { UserData } from "../models/user";
+import UserShow from "./user-show";
+import UserForm from "./user-form";
 import View from "./view";
 
 class UserEdit extends View<User, UserData> {
@@ -7,6 +9,11 @@ class UserEdit extends View<User, UserData> {
       userShow: ".user-show",
       userForm: ".user-form",
     };
+  }
+
+  onRender(): void {
+    new UserShow(this.regions.userShow, this.model).render();
+    new UserForm(this.regions.userForm, this.model).render();
   }
 
   template(): string {
