@@ -16,6 +16,12 @@ class UserForm {
       "click:.set-age": () => {
         this.model.setRandomAge();
       },
+
+      "click:.set-name": () => {
+        const input = this.parent.querySelector("input")!;
+        const name = input.value;
+        this.model.set({ name });
+      },
     };
   }
 
@@ -27,7 +33,8 @@ class UserForm {
         <div>User age: ${this.model.get("age")}</div>
         <br />
         <input />
-        <button>Click me!</button>
+        <button class="set-name">Update name</button>
+        <br />
         <button class="set-age">Set random age</button>
       </div>
     `;
